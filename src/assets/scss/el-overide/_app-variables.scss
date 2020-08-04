@@ -1,0 +1,100 @@
+//@import url('https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700,700i');
+//@import url('https://fonts.googleapis.com/css?family=Gothic+A1:300,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,900&display=swap');
+
+// Colors
+$app-default-color: #66615b;
+//$app-primary-color: #7a9e9f;
+//$app-primary-color: #65b4c6;
+//$app-primary-color: #3a75ba;
+$app-primary-color: #376fae;
+$app-secondary-color: #262c42;
+$app-optional-color: #ffefa1;
+//$app-success-color: #6EC19B;
+//$app-success-color: #4072ee;
+//$app-success-color: #3a75ba;
+$app-success-color: $app-primary-color;
+$app-info-color: #ffd558;
+//$app-warning-color: #f79263;
+$app-warning-color: #d0490b;
+//$app-danger-color: #de4848;
+$app-danger-color: #de330d;
+$app-white-color: #fff;
+$app-black-color: #111;
+
+$app-blue-gray: #545d63;
+$app-dark-gray: #222;
+$app-gray: #333333;
+//$app-light-gray: #545454;
+$app-light-gray: #838894;
+$app-lighter-gray: #ccc;
+$app-lightest-gray: #eaeaea;
+$app-disabled-gray1: #e0e0e0;
+$app-disabled-gray2: #B2AEAC;
+$app-default-gray: #eff2f8;
+$app-default-gray2: #eff2f8;
+
+// Widths
+$app-aside-width: 270px;
+$app-aside-fold-width: 45px;
+$app-body-wrap: 1440px;
+$app-wrapper-max: 1440px;
+$app-md-wrap: 97%;
+$app-sm-wrap: 97%;
+$app-xs-wrap: 95%;
+
+// Fonts
+//$app-primary-font-family: 'Muli', 'Helvetica', 'Arial', sans-serif;
+//$app-primary-font-family: 'Muli', sans-serif;
+//$app-primary-font-family: 'Gothic A1', sans-serif;
+$app-primary-font-family: 'Nunito Sans', sans-serif;
+$app-primary-font-size: 14px;
+
+// Line Heights
+$app-h-lineheights: 1.4em;
+$app-p-lineheights: 1.4em;
+
+// Media Query Breakpoints
+$xxs-max: 480px - 1;
+$xs-min: 480px;
+$xs-max: 768px - 1;
+$sm-min: 768px;
+$sm-max: 992px - 1;
+$md-min: 992px;
+$md-max: 1200px - 1;
+$lg-min: 1200px;
+
+// **************************************************
+// Extra-Extra small/Mobile Portrait Viewport
+// @media (max-width: $xxs-max) {
+//
+// }
+// **************************************************
+
+// **************************************************
+// Extra Small/Mobile Landscape Viewport
+// @media (min-width: $xs-min) and (max-width: $xs-max) {
+//
+// }
+// **************************************************
+
+// **************************************************
+// Small/Tablet Viewport
+// @media (min-width: $sm-min) and (max-width: $sm-max) {
+//
+// }
+// **************************************************
+
+// **************************************************
+// Medium Viewport
+// @media (min-width: $md-min) and (max-width: $md-max) {
+//
+// }
+// **************************************************
+
+// **************************************************
+// Large Viewport
+// @media (min-width: $lg-min) {
+//
+// }
+// **************************************************

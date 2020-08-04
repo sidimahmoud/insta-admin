@@ -1,0 +1,114 @@
+$app-table-border-color: #e6ebf5;
+
+.el-table {
+  margin-bottom: 25px;
+  //border-left: 1px solid $app-table-border-color;
+}
+
+.el-table td {
+  padding: 0 0;
+}
+
+.el-table th {
+  padding: 7px 0;
+}
+
+.el-table th .cell {
+  font-size: $app-primary-font-size - 2;
+}
+
+.el-table thead th.is-leaf,
+.el-table td {
+  border-right: 0;
+}
+
+.el-table thead th .cell {
+  //color: #838894;
+  color: #545454;
+}
+
+.el-table__fixed-right {
+  border-right: 1px solid $app-table-border-color;
+}
+
+.el-table .cell {
+  text-align: center;
+  padding: 2px 2px;
+}
+
+.el-table td .cell {
+  font-size: $app-primary-font-size - 2;
+}
+
+.el-table tr:nth-child(even) {
+  //background-color: #eaeaea;
+  background-color: #f4f7fb !important;
+
+  > td {
+    background-color: #f4f7fb !important;
+  }
+
+}
+
+.app-list .el-table td h4.cell-title {
+  display: none;
+}
+
+.list-base-table-top-controls {
+  padding: 15px;
+  vertical-align: middle;
+
+  .fa {
+    margin: 0 3px;
+  }
+}
+
+.el-table tr.is_test {
+  background: $app-danger-color !important;
+  color: #e6ebf5;
+
+  > td {
+    background-color: $app-danger-color !important;
+  }
+}
+
+.el-table tr.is_flagged {
+  background: $app-primary-color !important;
+  color: #e6ebf5;
+
+  > td {
+    background-color: $app-primary-color !important;
+  }
+}
+
+.el-table tr.is_difficult {
+  background: $app-warning-color !important;
+  color: $app-black-color;
+
+  > td {
+    background-color: $app-warning-color !important;
+  }
+}
+.el-table tr.has_replies {
+  background: $app-optional-color !important;
+  color: $app-black-color;
+
+  > td {
+    background-color: $app-optional-color !important;
+  }
+}
+.el-table tr.reset-row-col {
+  background: initial !important;
+  color: initial !important;
+
+  > td {
+    background-color: initial !important;
+  }
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  color: $app-black-color
+}
+.el-row.el-row-actions {
+  text-align: center;
+}

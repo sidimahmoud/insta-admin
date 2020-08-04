@@ -1,0 +1,15 @@
+$app-tabs-common-color: $app-primary-color;
+
+.el-tabs__item:hover,
+.el-tabs__item.is-active {
+    color: $app-tabs-common-color;
+}
+
+.el-tabs__active-bar {
+    background-color: $app-tabs-common-color;
+    height: 4px;
+}
+
+.el-tabs__content {
+    padding: 15px 15px;
+}

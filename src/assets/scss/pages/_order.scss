@@ -1,0 +1,54 @@
+.order-details-actions {
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+
+    .el-button, .el-dropdown, .el-input, .el-input__inner, .el-select , h4{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 5px;
+    }
+}
+
+.order-detail-list {
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+}
+
+$app-detail-list-border-color: #e6ebf5;
+
+.detail-list {
+    width: 100%;
+    table-layout: fixed;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+.detail-list td {
+    border-top: 1px solid $app-detail-list-border-color;
+    padding: 12px 0;
+}
+
+.detail-list td.cell-label span {
+    font-weight: 700;
+}
+
+.detail-list td.cell-label.label-emphasize {
+    padding: 15px;
+
+    span,
+    & + .cell-value span {
+        font-size: $app-primary-font-size - 2;
+    }
+}
+
+.oder-map {
+    padding: 300px;
+}
+
+.float-left {
+    float: right;
+    padding: 5px;
+}

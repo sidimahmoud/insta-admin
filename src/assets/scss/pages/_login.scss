@@ -1,0 +1,119 @@
+.app-login{
+    /* Location of the image */
+  //background-image: url("../img/sidebar-3.jpg");
+  /* Full height */
+  height: 100%; 
+  text-align: center;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: -20px;
+  background-color: #48493b;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.form-container{
+    padding: 5px;
+}
+
+.login-form{
+    text-align: center;
+    width: 30%;
+    height: 50%;
+    background-color: transparentize(white, .2);
+    position: fixed; /* or absolute */
+    top: 25%;
+    left: 35%;
+}
+
+.app-form{
+    text-align: center;
+    padding: 10px;
+}
+
+.login-page {
+    //noinspection CssUnknownTarget
+    background-image: url(../img/sidebar-4.jpg);
+    width: 100%;
+}
+
+.login-page,
+.login-page > .app-container {
+    height: inherit;
+}
+
+.login-page > .app-container > .app-row {
+    align-items: center;
+}
+
+.login-page > .app-container > .app-row > .app-col {
+max-width: 550px;
+width: 30%;
+background-color: transparent;
+
+& > .content-body {
+    text-align: center;
+}
+
+.el-form-item.login-email-container,
+.el-form-item.login-password-container {
+    margin-bottom: 21px;
+}
+
+.el-form-item__label {
+    padding-right: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.el-form-item__error {
+    text-align: center;
+    width: 100%;
+}
+
+& > .content-body {
+    border-radius: 5px;
+    padding: 45px 25px 15px;
+    margin: 0 15px;
+    position: relative;
+    //top: -75px;
+    box-sizing: border-box;
+    background-color: transparentize(#fff, .25);
+}
+
+}
+
+.login-page h1 {
+    font-weight: 700;
+    font-size: 41px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: $app-primary-color;
+    text-transform: uppercase;
+
+    & > span {
+        text-indent: -9000px;
+        position: absolute;
+    }
+
+    img {
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+.login-page .processing-login {
+    font-weight: bold;
+    text-align: center;
+    color: $app-gray;
+}
+
