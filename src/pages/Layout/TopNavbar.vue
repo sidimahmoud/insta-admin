@@ -4,7 +4,7 @@
       <div class="md-toolbar-section-start">
         <h3 class="md-title">{{ $route.name }}</h3>
       </div>
-      <div class="md-toolbar-section-end">
+      <!--<div class="md-toolbar-section-end">
         <md-button
           class="md-just-icon md-simple md-toolbar-toggle"
           :class="{ toggled: $sidebar.showSidebar }"
@@ -31,7 +31,7 @@
               <p class="hidden-lg hidden-md">Dashboard</p>
             </md-list-item>
 
-            <!-- <md-list-item href="#/notifications" class="dropdown">
+            <md-list-item href="#/notifications" class="dropdown">
               <drop-down>
                 <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="material-icons">notifications</i>
@@ -46,7 +46,7 @@
                   <li><a href="#">Another One</a></li>
                 </ul>
               </drop-down>
-            </md-list-item> -->
+            </md-list-item> 
 
             <li class="md-list-item">
               <a
@@ -82,7 +82,7 @@
             </md-list-item>
           </md-list>
         </div>
-      </div>
+      </div>-->
     </div>
   </md-toolbar>
 </template>

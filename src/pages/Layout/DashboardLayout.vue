@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
-   <!-- <notifications></notifications>-->
-
+    <!--<notifications></notifications>-->
     <side-bar
       :sidebar-item-color="sidebarBackground"
       :sidebar-background-image="sidebarBackgroundImage"
@@ -15,7 +14,7 @@
         <md-icon>moped</md-icon>
         <p>Drivers</p>
       </sidebar-link>
-      <sidebar-link to="/user">
+      <sidebar-link to="/drivers">
         <md-icon>storefront</md-icon>
         <p>Commerces</p>
       </sidebar-link>
@@ -31,17 +30,16 @@
         <md-icon>all_inbox</md-icon>
         <p>Inbox</p>
       </sidebar-link>
-      
     </side-bar>
 
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <fixed-plugin
+      <!--<fixed-plugin
         :color.sync="sidebarBackground"
         :image.sync="sidebarBackgroundImage"
       >
-      </fixed-plugin>
+      </fixed-plugin>-->
 
       <dashboard-content> </dashboard-content>
 
@@ -55,7 +53,7 @@ import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
 import MobileMenu from "@/pages/Layout/MobileMenu.vue";
-import FixedPlugin from "./Extra/FixedPlugin.vue";
+//import FixedPlugin from "./Extra/FixedPlugin.vue";
 
 export default {
   components: {
@@ -63,7 +61,7 @@ export default {
     DashboardContent,
     ContentFooter,
     MobileMenu,
-    FixedPlugin
+    //FixedPlugin
   },
   data() {
     return {

@@ -61,14 +61,14 @@ export default {
     methods: {
         getCategories() {
             let vm = this;
-            axios.get('http://api.instantavite.com/api/categories?page=1')
+            axios.get('https://api.instantavite.com/api/categories?page=1')
                 .then( (result) => {
                     console.log(result.data);
                     this.categories = result.data;
                 });
         },
         handleDelete(item){
-            axios.delete(`http://api.instantavite.com/api/categories/${item.id}`,item)
+            axios.delete(`https://api.instantavite.com/api/categories/${item.id}`,item)
                 .then( (result) => {
                     console.log(result);
                     this.getCategories();

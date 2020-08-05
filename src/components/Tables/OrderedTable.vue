@@ -45,40 +45,7 @@ export default {
   data() {
     return {
       selected: [],
-      users: [
-        {
-          id: 1,
-          name: "Dakota Rice",
-          amount: "$36,738",
-          mobile: "078965632",
-          address: "Oud-Turnhout",
-          date: "21/06/2020"
-        },
-        {
-          id: 2,
-          name: "Minerva Hooper",
-          amount: "$23,738",
-          mobile: "069965632",
-          address: "Sinaai-Waas",
-          date: "21/06/2020"
-        },
-        {
-          id: 3,
-          name: "Sage Rodriguez",
-          amount: "$56,142",
-          mobile: "078962000",
-          address: "Overland Park",
-          date: "20/06/2020"
-        },
-        {
-          id: 4,
-          name: "Philip Chaney",
-          amount: "$38,735",
-          mobile: "07896963",
-          address: "Gloucester",
-          date: "20/06/2020"
-        }
-      ]
+      users: []
     };
   },
   /*

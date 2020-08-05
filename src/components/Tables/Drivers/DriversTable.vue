@@ -53,30 +53,6 @@ export default {
     return {
       selected: [],
       users: [
-        {
-          id: 1,
-          name: "Mark",
-          mobile: "078965632",
-          address: "Oud-Turnhout"
-        },
-        {
-          id: 2,
-          name: "Jill",
-          mobile: "069965632",
-          address: "Sinaai-Waas"
-        },
-        {
-          id: 3,
-          name: "Messi",
-          mobile: "078962000",
-          address: "Overland Park"
-        },
-        {
-          id: 4,
-          name: "Philip",
-          mobile: "07896963",
-          address: "Gloucester"
-        }
       ]
     };
   },

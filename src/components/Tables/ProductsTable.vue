@@ -2,7 +2,6 @@
   <div>
     <md-table v-model="products" :table-header-color="tableHeaderColor">
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Image"><img :src="item.image" height="10px" width="20px"/></md-table-cell>
         <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
         <md-table-cell md-label="Categorie">{{ item.categorie_id | getCategorieName(categorieOpts) }}</md-table-cell>
         <md-table-cell md-label="price">{{ item.price }}</md-table-cell>
@@ -80,21 +79,21 @@ export default {
     methods: {
       getProducts() {
         let vm = this;
-        axios.get('http://api.instantavite.com/api/products?page=1')
+        axios.get('https://api.instantavite.com/api/products?page=1')
             .then( (result) => {
                 console.log(result.data);
                 this.products = result.data;
             });
       },
       handleDelete(item){
-        axios.delete(`http://api.instantavite.com/api/products/${item.id}`,item)
+        axios.delete(`https://api.instantavite.com/api/products/${item.id}`,item)
             .then( (result) => {
                 console.log(result);
                 this.getProducts();
             });
       },
       getCategoriesList(){
-        axios.get('http://api.instantavite.com/api/categories')
+        axios.get('https://api.instantavite.com/api/categories')
             .then( (result) => {
                 this.categorieOpts = result.data;
                 console.log(this.categorieOpts);

@@ -129,7 +129,7 @@ export default {
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
-                    axios.post('http://api.instantavite.com/api/products',this.form)
+                    axios.post('https://api.instantavite.com/api/products',this.form)
                     .then( (result) => {
                         console.log(result);
                         Swal.fire({
@@ -182,7 +182,7 @@ export default {
             );
         },
         getCategoriesList(){
-            axios.get('http://api.instantavite.com/api/categories')
+            axios.get('https://api.instantavite.com/api/categories')
                 .then( (result) => {
                     this.categorieOpts = result.data;
                     console.log(this.categorieOpts);

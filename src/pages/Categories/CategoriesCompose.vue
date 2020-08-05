@@ -93,7 +93,7 @@ export default {
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
-                    axios.post('http://api.instantavite.com/api/categories',this.form)
+                    axios.post('https://api.instantavite.com/api/categories',this.form)
                     .then( (result) => {
                         console.log(result);
                     });
