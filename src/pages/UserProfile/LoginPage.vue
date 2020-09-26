@@ -116,7 +116,6 @@ export default {
       if (hasAccessToken) {
         this.$router.push({path: '/orders'});
       }
-
     }, // End of component > mounted
         
 }
