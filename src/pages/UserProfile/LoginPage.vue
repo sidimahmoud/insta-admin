@@ -112,10 +112,8 @@ export default {
     */
     mounted () {
       const hasAccessToken = localStorage.getItem("instant_access_token");
-      console.log(hasAccessToken)
       // If user has access token already, redirect to dashboard.
       if (hasAccessToken) {
-        console.log('There is a token already! Redirecting to Dashboard.');
         this.$router.push({path: '/orders'});
       }
 
