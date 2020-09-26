@@ -8,13 +8,25 @@
       <mobile-menu slot="content"></mobile-menu>
       <sidebar-link to="/orders">
         <md-icon>reorder</md-icon>
-        <p>Orders</p>
+        <p>All Orders</p>
+      </sidebar-link>
+      <sidebar-link to="/drivers-online">
+        <md-icon>moped</md-icon>
+        <p>Drivers online</p>
+      </sidebar-link>
+      <sidebar-link to="/special-order">
+        <md-icon>moped</md-icon>
+        <p>Special order</p>
+      </sidebar-link>
+      <sidebar-link to="/repayment">
+        <md-icon>moped</md-icon>
+        <p>Remboursement clients</p>
       </sidebar-link>
       <sidebar-link to="/drivers">
         <md-icon>moped</md-icon>
         <p>Drivers</p>
       </sidebar-link>
-      <sidebar-link to="/drivers">
+      <sidebar-link to="/">
         <md-icon>storefront</md-icon>
         <p>Commerces</p>
       </sidebar-link>
@@ -28,7 +40,7 @@
       </sidebar-link>
       <sidebar-link to="/inbox">
         <md-icon>all_inbox</md-icon>
-        <p>Inbox</p>
+        <p>Chat clients</p>
       </sidebar-link>
     </side-bar>
 

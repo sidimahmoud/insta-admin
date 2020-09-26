@@ -10,6 +10,7 @@ import SimpleTable from "./Tables/SimpleTable.vue";
 import DriversTable from "./Tables/Drivers/DriversTable";
 import ProductsTable from "./Tables/ProductsTable";
 import CategoriesTable from "./Tables/CategoriesTable";
+import AllDriversTable from "./Tables/Drivers/AllDriversTable";
 
 //Forms
 import OrderForm from "./Forms/Orders/OrderForm";
@@ -28,4 +29,5 @@ export {
   OrderActions,
   ProductsTable,
   CategoriesTable,
+  AllDriversTable,
 };

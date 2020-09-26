@@ -15,14 +15,16 @@ import DriverPage from "@/pages/Drivers/DriverPage.vue";
 import OrderDetails from "@/pages/Orders/OrderDetails.vue";
 import OrderMap from "@/pages/Orders/OrderMap.vue";
 import OrderCompose from "@/pages/Orders/OrderCompose.vue";
+import SpecialOrder from "@/pages/Orders/SpecialOrder.vue";
 import ProductPage from "@/pages/Products/ProductPage.vue";
 import ProductsCompose from "@/pages/Products/ProductsCompose.vue";
 import CategoriesPage from "@/pages/Categories/CategoriesPage.vue";
 import CategoriesCompose from "@/pages/Categories/CategoriesCompose.vue";
 import LoginPage from "@/pages/UserProfile/LoginPage.vue";
 import InboxPage from "@/pages/Inbox/InboxPage.vue";
-
-
+import DriverLocation from "@/pages/Drivers/DriverLocation.vue";
+import RembourssementPage from "@/pages/UserProfile/RembourssementPage.vue";
+import AllDriverPage from "@/pages/Drivers/AllDriverPage.vue";
 
 const routes = [
   {
@@ -80,7 +82,7 @@ const routes = [
         component: OrdersPage
       },
       {
-        path: "drivers",
+        path: "drivers-online",
         name: "Drivers List",
         component: DriverPage
       },
@@ -121,9 +123,35 @@ const routes = [
       },
       {
         path: "inbox",
-        name: "Inbox page",
+        name: "Chat page",
         component: InboxPage
       },
+      {
+        path: "product/:id",
+        name: "Edit products",
+        component: ProductsCompose
+      },
+      {
+        path: "driver/:id/location",
+        name: "Driver location",
+        component: DriverLocation
+      },
+      {
+        path: "special-order",
+        name: "Special order",
+        component: SpecialOrder
+      },
+      {
+        path: "repayment",
+        name: "repayment order",
+        component: RembourssementPage
+      },
+      {
+        path: "drivers",
+        name: "Drivers page",
+        component: AllDriverPage
+      },
+      
       
     ]
   },

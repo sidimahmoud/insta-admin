@@ -64,7 +64,8 @@
                     </div>
 
                     <div class="float-left">
-                        <el-button type="success" @click="handelAdd">Submit</el-button>
+                        <el-button type="success" v-if="!editMode" @click="handelAdd">Submit</el-button>
+                        <el-button type="success" v-else @click="handelEdit">Update</el-button>
                     </div>
                       
                 </md-card-content>
@@ -76,6 +77,7 @@
 import storage from 'firebase/storage';
 import firebase from "firebase";
 import izitoast from 'izitoast';
+import { isEmpty } from '../../helpers/Common';
 
 export default {
     name: "product-form",
@@ -110,7 +112,8 @@ export default {
             imageData: null,
             picture: null,
             uploadValue: 0,
-            categorieOpts:[]
+            categorieOpts:[],
+            editMode: false
 
         };
     },
@@ -187,6 +190,56 @@ export default {
                     this.categorieOpts = result.data;
                     console.log(this.categorieOpts);
                 });
+        },
+        getProduct(id) {
+            let _this = this;
+            axios.get(`https://api.instantavite.com/api/products/${id}`)
+                .then( (result) => {
+                    console.log(_this.form);
+                    _this.form = result.data;
+                    console.log(_this.form);
+                });
+        },
+        handelEdit(){
+            this.picture=null;
+            const storageRef=firebase.storage().ref(`product-img/${this.imageData.name}`).put(this.imageData);
+            storageRef.on(`state_changed`,snapshot=>{
+                this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            }, error=>{console.log(error.message)},
+            ()=>{this.uploadValue=100;
+                storageRef.snapshot.ref.getDownloadURL().then((url)=>{
+                    this.form.image = url;
+                    axios.put(`https://api.instantavite.com/api/products/${this.form.id}`,this.form)
+                    .then( (result) => {
+                        console.log(result);
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        this.form = {
+                            name: '',
+                            categorie_id: '',
+                            price: '',
+                            image: '',
+                            name_english:'',
+                            size: ''
+                        }
+                    })
+                    .catch(function (error) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Something get wrong',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    });
+                });
+            }
+            );
         }
     },
     /*
@@ -195,6 +248,10 @@ export default {
     |--------------------------------------------------------------------------
     */
     mounted() {
+        if(!isEmpty(this.$route.query.id)){
+            this.editMode = true;
+            this.getProduct(this.$route.query.id);
+        }
         this.getCategoriesList();
     },
     

@@ -35,7 +35,7 @@ export default {
   */
   methods:{
     handleMap () {
-     this.$router.push({path: '/orders-details/' + this.$route.params.id + "/map"});
+      this.$router.push({path: '/orders-details/' + this.$route.params.id + "/map"});
     },
   }
 };

@@ -9,9 +9,9 @@
         <li class="clearfix" v-for="room in rooms" v-bind:key="room.id" @click="changeUser(room)">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
           <div class="about">
-            <div class="name" style="color:#fff">{{room.name}}</div>
+            <div class="name" style="color:#fff">{{room.email}}</div>
             <div class="status">
-              {{room.mobile}}
+              {{room.name}}
             </div>
           </div>
         </li>
@@ -23,7 +23,7 @@
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
         
         <div class="chat-about">
-          <div class="chat-with">{{user.name}}</div>
+          <div class="chat-with">{{user.email}}</div>
           <div class="chat-num-messages">{{user.email}}</div>
         </div>
         <i class="fa fa-star"></i>
@@ -105,37 +105,35 @@ export default {
     */
     methods: {
         getRooms(){
-            axios.get('https://api.instantavite.com/api/rooms')
+            axios.get('https://api.instantavite.com/api/questions-rooms')
             .then( (result) => {
                 this.rooms = result.data;
             });
         },
         changeUser(room){
-            this.user.id = room.id
-            this.user.name = room.name
             this.user.email = room.email
-            this.getChat(room.id);
+            this.getChat(room.email);
         },
         getChat(id){
-            axios.get(`https://api.instantavite.com/api/inboxes?filter[user_id]=${id}`)
+            axios.get(`https://api.instantavite.com/api/questions?filter[email]=${id}`)
             .then( (result) => {
                 this.chat = result.data;
             });
         },
         sendInbox(){
             let payload = {
-                message: this.message,
-                user_id: this.user.id,
-                from_Admin: true
+              message: this.message,
+              email: this.user.email,
+              from_Admin: true,
             }
             axios({
                 method: 'post',
-                url: 'https://api.instantavite.com/api/inboxes',
+                url: 'https://api.instantavite.com/api/questions',
                 data: payload
             })
             .then((response) => {
                 setTimeout(() => {
-                    this.getChat(this.user.id)
+                    this.getChat(this.user.email)
                     this.message = ''
                 },1000)
                

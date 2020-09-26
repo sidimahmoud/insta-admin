@@ -9,7 +9,7 @@
           <el-button
             class="circle b"
             type="success"
-            title="Details"
+            title="Edit"
             @click.stop="handleEdit(item)"
             size="mini"
             icon="el-icon-info"
@@ -18,7 +18,7 @@
           <el-button
             class="circle b"
             type="danger"
-            title="Details"
+            title="Delete"
             @click.stop="handleDelete(item)"
             size="mini"
             icon="el-icon-delete"
@@ -27,6 +27,16 @@
         </md-table-cell>
       </md-table-row>
     </md-table>
+    
+    <el-pagination
+        layout="total, sizes, prev, pager, next, jumper"
+        :page-size="per_page"
+        :page-sizes="[15, 20, 50, 100, 200]"
+        :total="count_orders"
+        :current-page="current_page"
+        @current-change="reloadList"
+    >
+    </el-pagination>
   </div>
 </template>
 
@@ -54,7 +64,12 @@ export default {
         return {
             selected: [],
             products: [],
-            categorieOpts:[]
+            categorieOpts:[],
+            page: '1',
+            last_page: '',
+            per_page: '',
+            count_products: '',
+            current_page: 1
         };
     },
     /*
@@ -80,24 +95,40 @@ export default {
       getProducts() {
         let vm = this;
         axios.get('https://api.instantavite.com/api/products?page=1')
-            .then( (result) => {
-                console.log(result.data);
-                this.products = result.data;
-            });
+        .then( (result) => {
+          this.last_page = result.last_page;
+          this.products = result.data.data;
+          this.count_orders = result.data.total;
+          this.per_page = result.data.per_page;
+        });
       },
       handleDelete(item){
         axios.delete(`https://api.instantavite.com/api/products/${item.id}`,item)
             .then( (result) => {
-                console.log(result);
-                this.getProducts();
+              this.getProducts();
             });
       },
       getCategoriesList(){
         axios.get('https://api.instantavite.com/api/categories')
             .then( (result) => {
-                this.categorieOpts = result.data;
-                console.log(this.categorieOpts);
+              this.categorieOpts = result.data;
             });
+      },
+      handleEdit(item){
+        let query = {};
+        
+        query[`id`] = item.id;
+        const path = '/add-product';
+        this.$router.push({path, query});
+      },
+      reloadList(n){
+        console.log(n)
+        axios.get(`https://api.instantavite.com/api/products?page=${n}`)
+        .then( (result) => {
+          this.products = result.data.data;
+          this.count_orders = result.data.total;
+          this.per_page = result.data.per_page;
+        });
       }
     },
     /*

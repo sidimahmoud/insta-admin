@@ -3,27 +3,11 @@
     <md-table v-model="drivers" :table-header-color="tableHeaderColor">
       <md-table-row slot="md-table-row" slot-scope="{ item }">
         <md-table-cell md-label="name">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Active Order number">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Time since accept">{{ item.address }}</md-table-cell>
-        <md-table-cell md-label="Phone number">{{ item.mobile }}</md-table-cell>
+        <md-table-cell md-label="Phone number">{{ item.phone }}</md-table-cell>
+        <md-table-cell md-label="Address">{{ item.address }}</md-table-cell>
+        <md-table-cell md-label="Number of orders">2</md-table-cell>
         <md-table-cell md-label="Actions">
-          <el-button
-            class="circle b"
-            type="success"
-            title="Details"
-            @click.stop="handleEdit(item)"
-            size="mini"
-            icon="el-icon-chat-dot-round"
-          >
-          </el-button>
-          <el-button
-            class="circle b"
-            type="info"
-            title="Details"
-            @click.stop="handleDriver(item)"
-            size="mini"
-            icon="el-icon-position"
-          ></el-button>
+          
         </md-table-cell>
       </md-table-row>
     </md-table>
@@ -63,12 +47,12 @@ export default {
   |--------------------------------------------------------------------------
   */
   methods:{
-    handleEdit (scope) {
+    /* handleEdit (scope) {
      this.$router.push({path: '/orders-details/' + scope.id});
-    },
+    }, */
     getDrivers() {
       let _this = this;
-      axios.get('https://api.instantavite.com/api/drivers?filter[is_online]=0')
+      axios.get('https://api.instantavite.com/api/drivers')
       .then( (result) => {
         _this.drivers = result.data.data;
         _this.count_orders = result.data.total;
@@ -77,16 +61,13 @@ export default {
     },
     reloadList(n){
       
-      axios.get(`https://api.instantavite.com/api/drivers?filter[is_online]=0&page=${n}`)
+      axios.get(`https://api.instantavite.com/api/drivers?page=${n}`)
       .then( (result) => {
         this.drivers = result.data.data;
         this.count_orders = result.data.total;
         this.per_page = result.data.per_page;
       });
     },
-    handleDriver(item){
-      this.$router.push({path: '/driver/' + item.id + "/location"});
-    }
   },
   /*
   |--------------------------------------------------------------------------

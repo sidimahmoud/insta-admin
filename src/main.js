@@ -39,12 +39,18 @@ import {
   CollapseItem,
   Row,
   Col,
+  Pagination
 } from 'element-ui';
 Vue.use(Button);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Row);
 Vue.use(Col);
+Vue.use(Pagination);
+
+import locale from 'element-ui/lib/locale/lang/en'
+
+Vue.use(ElementUI, { locale })
 
 import firebase from "firebase";
 
@@ -65,7 +71,8 @@ firebase.initializeApp(firebaseConfig);
 import VueSweetalert2 from 'vue-sweetalert2';
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
- 
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate)
 Vue.use(VueSweetalert2);
 // configure router
 const router = new VueRouter({
@@ -76,11 +83,11 @@ const router = new VueRouter({
 Vue.prototype.$Chartist = Chartist;
 
 Vue.use(VueRouter);
-Vue.use(ElementUI);
 Vue.use(MaterialDashboard);
 Vue.use(GlobalComponents);
 Vue.use(GlobalDirectives);
 Vue.use(Notifications);
+Vue.use(Paginate)
 
 /* eslint-disable no-new */
 new Vue({
