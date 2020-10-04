@@ -68,7 +68,7 @@ export default {
     },
     getDrivers() {
       let _this = this;
-      axios.get('https://api.instantavite.com/api/drivers?filter[is_online]=0')
+      axios.get('https://api.instantavite.com/api/drivers?filter[available]=1')
       .then( (result) => {
         _this.drivers = result.data.data;
         _this.count_orders = result.data.total;
