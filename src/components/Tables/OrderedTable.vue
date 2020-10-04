@@ -89,7 +89,6 @@ export default {
       });
     },
     reloadList(n){
-      console.log(n)
       axios.get(`https://api.instantavite.com/api/orders?page=${n}`)
       .then( (result) => {
         this.orders = result.data.data;
