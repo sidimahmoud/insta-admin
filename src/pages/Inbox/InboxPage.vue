@@ -7,7 +7,6 @@
       </div>
       <ul class="list">
         <li class="clearfix" v-for="room in rooms" v-bind:key="room.id" @click="changeUser(room)">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
           <div class="about">
             <div class="name" style="color:#fff">{{room.email}}</div>
             <div class="status">
