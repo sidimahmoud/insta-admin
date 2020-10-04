@@ -19,14 +19,14 @@
             icon="el-icon-info"
           >
           </el-button>
-          <el-button
+          <!-- <el-button
             class="circle b"
             type="danger"
             title="Details"
             @click.stop="handleEdit(item)"
             size="mini"
             icon="el-icon-delete"
-          >
+          > -->
           </el-button>
         </md-table-cell>
       </md-table-row>
