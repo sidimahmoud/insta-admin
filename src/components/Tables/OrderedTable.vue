@@ -26,8 +26,8 @@
             @click.stop="handleEdit(item)"
             size="mini"
             icon="el-icon-delete"
-          > -->
-          </el-button>
+          > 
+          </el-button>-->
         </md-table-cell>
       </md-table-row>
     </md-table>
