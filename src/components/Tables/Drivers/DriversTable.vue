@@ -77,7 +77,7 @@ export default {
     },
     reloadList(n){
       
-      axios.get(`https://api.instantavite.com/api/drivers?filter[is_online]=0&page=${n}`)
+      axios.get(`https://api.instantavite.com/api/drivers?filter[available]=1&page=${n}`)
       .then( (result) => {
         this.drivers = result.data.data;
         this.count_orders = result.data.total;
