@@ -81,7 +81,7 @@ export default {
     },
     getOrders() {
       let vm = this;
-      axios.get('https://api.instantavite.com/api/orders')
+      axios.get('https://api.instantavite.com/api/orders?sort=-created_at')
       .then( (result) => {
         this.orders = result.data.data;
         this.count_orders = result.data.total;
@@ -89,7 +89,7 @@ export default {
       });
     },
     reloadList(n){
-      axios.get(`https://api.instantavite.com/api/orders?page=${n}`)
+      axios.get(`https://api.instantavite.com/api/orders??sort=-created_at&page=${n}`)
       .then( (result) => {
         this.orders = result.data.data;
         this.count_orders = result.data.total;
