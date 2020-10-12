@@ -122,7 +122,6 @@ export default {
         this.$router.push({path, query});
       },
       reloadList(n){
-        console.log(n)
         axios.get(`https://api.instantavite.com/api/products?page=${n}`)
         .then( (result) => {
           this.products = result.data.data;

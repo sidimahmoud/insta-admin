@@ -89,13 +89,12 @@ export default {
             const storageRef=firebase.storage().ref(`categories/${this.imageData.name}`).put(this.imageData);
             storageRef.on(`state_changed`,snapshot=>{
                 this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            }, error=>{console.log(error.message)},
+            }, error=>{},
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
                     axios.post('https://api.instantavite.com/api/categories',this.form)
                     .then( (result) => {
-                        console.log(result);
                     });
                 });
             }
@@ -112,11 +111,10 @@ export default {
             const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
             storageRef.on(`state_changed`,snapshot=>{
                 this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            }, error=>{console.log(error.message)},
+            }, error=>{},
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
-                    console.log(url);
                 });
             }
             );

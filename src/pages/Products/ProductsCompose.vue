@@ -128,13 +128,12 @@ export default {
             const storageRef=firebase.storage().ref(`product-img/${this.imageData.name}`).put(this.imageData);
             storageRef.on(`state_changed`,snapshot=>{
                 this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            }, error=>{console.log(error.message)},
+            }, error=>{},
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
                     axios.post('https://api.instantavite.com/api/products',this.form)
                     .then( (result) => {
-                        console.log(result);
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -175,11 +174,10 @@ export default {
             const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
             storageRef.on(`state_changed`,snapshot=>{
                 this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            }, error=>{console.log(error.message)},
+            }, error=>{},
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
-                    console.log(url);
                 });
             }
             );
@@ -188,16 +186,13 @@ export default {
             axios.get('https://api.instantavite.com/api/categories')
                 .then( (result) => {
                     this.categorieOpts = result.data;
-                    console.log(this.categorieOpts);
                 });
         },
         getProduct(id) {
             let _this = this;
             axios.get(`https://api.instantavite.com/api/products/${id}`)
                 .then( (result) => {
-                    console.log(_this.form);
                     _this.form = result.data;
-                    console.log(_this.form);
                 });
         },
         handelEdit(){
@@ -205,13 +200,12 @@ export default {
             const storageRef=firebase.storage().ref(`product-img/${this.imageData.name}`).put(this.imageData);
             storageRef.on(`state_changed`,snapshot=>{
                 this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            }, error=>{console.log(error.message)},
+            }, error=>{},
             ()=>{this.uploadValue=100;
                 storageRef.snapshot.ref.getDownloadURL().then((url)=>{
                     this.form.image = url;
                     axios.put(`https://api.instantavite.com/api/products/${this.form.id}`,this.form)
                     .then( (result) => {
-                        console.log(result);
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',

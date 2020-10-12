@@ -63,14 +63,12 @@ export default {
             let vm = this;
             axios.get('https://api.instantavite.com/api/categories?page=1')
                 .then( (result) => {
-                    console.log(result.data);
                     this.categories = result.data;
                 });
         },
         handleDelete(item){
             axios.delete(`https://api.instantavite.com/api/categories/${item.id}`,item)
                 .then( (result) => {
-                    console.log(result);
                     this.getCategories();
                 });
         }
