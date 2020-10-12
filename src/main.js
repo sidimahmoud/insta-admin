@@ -74,6 +74,15 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import Paginate from 'vuejs-paginate'
 Vue.component('paginate', Paginate)
 Vue.use(VueSweetalert2);
+
+import * as VueGoogleMaps from 'vue2-google-maps'
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyAmGhfMkVv6jEXF4xdtxQZbYJrlqAKokSE',
+    libraries: 'places',
+  },
+})
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
