@@ -64,11 +64,11 @@ export default {
   */
   methods:{
     handleEdit (scope) {
-     this.$router.push({path: '/orders-details/' + scope.id});
+     this.$router.push({path: '/chat-drivers'});
     },
     getDrivers() {
       let _this = this;
-      axios.get('https://api.instantavite.com/api/drivers?filter[available]=1')
+      axios.get('https://api.instantavite.com/api/drivers?filter[is_online]=1')
       .then( (result) => {
         _this.drivers = result.data.data;
         _this.count_orders = result.data.total;
@@ -77,7 +77,7 @@ export default {
     },
     reloadList(n){
       
-      axios.get(`https://api.instantavite.com/api/drivers?filter[available]=1&page=${n}`)
+      axios.get(`https://api.instantavite.com/api/drivers?filter[is_online]=1&page=${n}`)
       .then( (result) => {
         this.drivers = result.data.data;
         this.count_orders = result.data.total;

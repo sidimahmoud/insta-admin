@@ -2,8 +2,8 @@
     <div class="content">
         <gmap-map
           :center="center"
-          :zoom="12"
-          style="width:100%;  height: 400px;"
+          :zoom="16"
+          style="width:100%;  height: 700px;"
         >
           <gmap-marker
             :key="index"

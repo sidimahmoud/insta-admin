@@ -42,6 +42,10 @@
         <md-icon>all_inbox</md-icon>
         <p>Chat clients</p>
       </sidebar-link>
+      <sidebar-link to="/chat-drivers">
+        <md-icon>all_inbox</md-icon>
+        <p>Chat drivers</p>
+      </sidebar-link>
     </side-bar>
 
     <div class="main-panel">

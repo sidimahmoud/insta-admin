@@ -22,6 +22,7 @@ import CategoriesPage from "@/pages/Categories/CategoriesPage.vue";
 import CategoriesCompose from "@/pages/Categories/CategoriesCompose.vue";
 import LoginPage from "@/pages/UserProfile/LoginPage.vue";
 import InboxPage from "@/pages/Inbox/InboxPage.vue";
+import DriversChat from "@/pages/Inbox/DriversChat.vue";
 import DriverLocation from "@/pages/Drivers/DriverLocation.vue";
 import RembourssementPage from "@/pages/UserProfile/RembourssementPage.vue";
 import AllDriverPage from "@/pages/Drivers/AllDriverPage.vue";
@@ -151,7 +152,11 @@ const routes = [
         name: "Drivers page",
         component: AllDriverPage
       },
-      
+      {
+        path: "chat-drivers",
+        name: "Drivers chat",
+        component: DriversChat
+      },
       
     ]
   },
