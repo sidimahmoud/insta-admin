@@ -24,7 +24,7 @@
       </sidebar-link>
       <sidebar-link to="/drivers">
         <md-icon>moped</md-icon>
-        <p>Drivers</p>
+        <p>All Drivers</p>
       </sidebar-link>
       <sidebar-link to="/">
         <md-icon>storefront</md-icon>

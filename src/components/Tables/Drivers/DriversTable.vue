@@ -64,7 +64,10 @@ export default {
   */
   methods:{
     handleEdit (scope) {
-     this.$router.push({path: '/chat-drivers'});
+      let query = {};
+      query[`id`] = scope.id;
+      const path = '/chat-drivers';
+     this.$router.push({path, query});
     },
     getDrivers() {
       let _this = this;

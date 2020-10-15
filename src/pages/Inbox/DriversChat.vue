@@ -8,9 +8,9 @@
       <ul class="list">
         <li class="clearfix" v-for="room in rooms" v-bind:key="room.id" @click="changeUser(room)">
           <div class="about">
-            <div class="name" style="color:#fff">{{room.email}}</div>
+            <div class="name" style="color:#fff">{{room.id}} - {{room.name}} </div>
             <div class="status">
-              {{room.name}}
+              {{user.last_update}}
             </div>
           </div>
         </li>
@@ -22,8 +22,8 @@
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
         
         <div class="chat-about">
-          <div class="chat-with">{{user.email}}</div>
-          <div class="chat-num-messages">{{user.email}}</div>
+          <div class="chat-with">{{user.name}}</div>
+          <div class="chat-num-messages">{{user.name}}</div>
         </div>
         <i class="fa fa-star"></i>
       </div> <!-- end chat-header -->
@@ -31,7 +31,7 @@
       <div class="chat-history">
         <ul>
           <li class="clearfix" v-for="c in chat" v-bind:key="c.id">
-            <div class="clearfix" v-if="!c.from_Admin">
+            <div class="clearfix" v-if="!c.is_for_admin">
                 <div class="message-data align-right">
                     <span class="message-data-time" >{{c.created_at}}</span> &nbsp; &nbsp;
                 </div>
@@ -71,6 +71,7 @@
 
 <script>
 //import {CategoriesTable } from "@/components";
+import {isEmpty} from '../../helpers/Common';
 
 export default {
     /*
@@ -92,7 +93,8 @@ export default {
             user:{
                 id:'',
                 name:'',
-                email:''
+                email:'',
+                last_update:'',
             },
             message:''
         };
@@ -104,24 +106,26 @@ export default {
     */
     methods: {
         getRooms(){
-            axios.get('https://api.instantavite.com/api/questions-rooms')
-            .then( (result) => {
-                this.rooms = result.data;
-            });
+          axios.get('https://api.instantavite.com/api/drivers')
+          .then( (result) => {
+              this.rooms = result.data.data;
+          });
         },
         changeUser(room){
-            this.user.email = room.email
-            this.getChat(room.email);
+          this.user.name = room.name
+          this.user.id = room.id
+          this.getChat(room.id);
         },
         getChat(id){
             axios.get(`https://api.instantavite.com/api/message?filter[user_id]=${id}`)
             .then( (result) => {
                 this.chat = result.data;
+                this.user.last_update = this.chat[this.chat.length - 1].created_at
             });
         },
         sendInbox(){
             let payload = {
-              user_id: id,
+              user_id: this.user.id,
               message: this.message,
               is_from_Admin: true,
             }
@@ -132,7 +136,7 @@ export default {
             })
             .then((response) => {
                 setTimeout(() => {
-                    this.getChat(this.user.email)
+                    this.getChat(this.user.id)
                     this.message = ''
                 },1000)
                
@@ -147,6 +151,12 @@ export default {
     */
     mounted() {
       this.getRooms();
+      const params = _.clone(this.$route.query);
+
+      if(!isEmpty(params)) {
+        this.user.id = params.id
+        this.getChat(params.id)
+      }
     },
     
 };
